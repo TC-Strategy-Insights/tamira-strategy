@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardinal Hardware - Tamira Carter</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #dfa408; --bg: #050505; }
+        body { margin: 0; background: var(--bg); font-family: 'Inter', sans-serif; color: #fff; overflow-x: hidden; }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--gold); width: 0%; z-index: 2000; box-shadow: 0 0 10px rgba(223, 164, 8, 0.5); }
+        nav { position: sticky; top: 0; background: rgba(5, 5, 5, 0.95); border-bottom: 1px solid #1a1a1a; z-index: 1000; padding: 15px 0; }
+        .nav-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .nav-link { color: #888; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; text-transform: uppercase; }
+        .nav-link:hover, .nav-link.active { color: var(--gold); }
+        .slide-wrapper { width: 100%; max-width: 1920px; margin: 0 auto 0px; position: relative; opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .slide-wrapper.visible { opacity: 1; transform: translateY(0); }
+        img { width: 100%; display: block; transition: transform 0.5s; }
+        .slide-wrapper:hover img { transform: scale(1.005); }
+        
+        /* ضبط مكان الأيقونات خصيصاً لكاردينال (داخل السهم) */
+        .footer-icons-container { 
+            position: absolute; 
+            bottom: 36%; 
+            right: 22%; 
+            display: flex; gap: 20px; z-index: 9999; 
+        }
+        .icon-btn-smart { width: 55px; height: 55px; background: rgba(0, 0, 0, 0.5); border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 24px; text-decoration: none; transition: all 0.3s ease; animation: gold-pulse 2s infinite; }
+        .icon-btn-smart:hover { background: var(--gold); color: #000; transform: translateY(-3px) scale(1.1); }
+        @keyframes gold-pulse { 0% { box-shadow: 0 0 0 0 rgba(223, 164, 8, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(223, 164, 8, 0); } 100% { box-shadow: 0 0 0 0 rgba(223, 164, 8, 0); } }
+
+        @media (max-width: 768px) {
+            .nav-link { font-size: 12px; padding: 5px 10px; border: 1px solid #333; border-radius: 20px; }
+            .icon-btn-smart { width: 28px; height: 28px; font-size: 12px; }
+            /* تعديل الموبايل لكاردينال */
+            .footer-icons-container { bottom: 34%; right: 16%; gap: 8px; }
+        }
+		/* --- تصميم الفوتر (Footer) --- */
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            border-top: 1px solid #1a1a1a; /* خط فاصل خفيف جداً */
+            color: #666; /* لون رمادي هادئ */
+            font-size: 0.9rem;
+            margin-top: 2px; /* مسافة أمان من الأعلى */
+            background-color: #050505;
+            width: 100%;
+        }
+
+        /* تحسين للموبايل */
+        @media (max-width: 768px) {
+            footer {
+                padding: 2px 15px;
+                font-size: 0.8rem;
+                margin-bottom: 20px; /* مسافة صغيرة في الأسفل */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="case1.html" class="nav-link">Beyoncé</a>
+            <a href="case2.html" class="nav-link">Airbnb</a>
+            <a href="case3.html" class="nav-link active">Cardinal</a>
+        </div>
+    </nav>
+
+    <div class="slide-wrapper"><img src="cardinal/1.jpg" alt="Slide 1"></div>
+    <div class="slide-wrapper"><img src="cardinal/2.jpg" alt="Slide 2"></div>
+    <div class="slide-wrapper"><img src="cardinal/3.jpg" alt="Slide 3"></div>
+    <div class="slide-wrapper"><img src="cardinal/4.jpg" alt="Slide 4"></div>
+    <div class="slide-wrapper"><img src="cardinal/5.jpg" alt="Slide 5"></div>
+    <div class="slide-wrapper"><img src="cardinal/6.jpg" alt="Slide 6"></div>
+    
+    <div class="slide-wrapper">
+        <img src="cardinal/7.jpg" alt="Conclusion">
+        <div class="footer-icons-container">
+            <a href="mailto:tamiracarter@gmail.com" class="icon-btn-smart"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/tamiracarter/" target="_blank" class="icon-btn-smart"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function() { let winScroll = document.body.scrollTop || document.documentElement.scrollTop; let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; let scrolled = (winScroll / height) * 100; document.getElementById("progress-bar").style.width = scrolled + "%"; };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.slide-wrapper').forEach(wrapper => { observer.observe(wrapper); });
+    </script>
+	<footer>
+        <p>&copy; 2026 Tamira Carter. All Strategic Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.75rem; color: #444; letter-spacing: 1px; text-transform: uppercase;">
+            Optimized for Executive Review
+        </p>
+    </footer>
+ </body>
+</html>

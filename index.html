@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamira Carter | Strategic Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta property="og:title" content="Tamira Carter | Market Strategy & Research">
+    <meta property="og:description" content="Bridging the gap between raw analytics and boardroom strategy. Unlock the $4.5B Impact Analysis.">
+    <meta property="og:image" content="Tamira Carter.png">
+    <meta property="og:url" content="https://tc-strategy-insights.github.io/beyonce-strategy-case/">
+    <meta name="twitter:card" content="summary_large_image"> 
+ <style>
+        /* --- الأساسيات --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: #FFFFFF; 
+            font-weight: 300; 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 60px 20px 40px; }
+
+        /* --- صورة البروفايل (تم الإصلاح) --- */
+        .profile-container { position: relative; width: 200px; height: 200px; margin: 0 auto 30px; }
+        .profile-ring { 
+            position: absolute; top: -10px; left: -10px; width: 220px; height: 220px; 
+            border: 3px solid #DFA408; border-radius: 50%; 
+            box-shadow: 0 0 30px rgba(223, 164, 8, 0.6); animation: pulse 2s infinite; 
+        }
+        .profile-img { 
+            width: 200px; height: 200px; border-radius: 50%; 
+            object-fit: cover; 
+            object-position: top center; /* يمنع قص الرأس */
+            display: block; position: relative; z-index: 1; 
+        }
+
+        h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -1px; }
+        .subtitle { color: #DFA408; font-size: 0.9rem; font-weight: 600; letter-spacing: 3px; margin-bottom: 30px; text-transform: uppercase; }
+        .hook { font-size: 1.2rem; font-weight: 300; max-width: 700px; margin: 0 auto 40px; line-height: 1.8; color: #ccc; }
+
+        /* --- أزرار بمواصفات أبل (حيوية وجذابة) --- */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .btn {
+            padding: 16px 36px; /* حجم كبير مريح للموبايل */
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center; /* لضمان توسط النص في الموبايل */
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* زر التحميل الذهبي */
+        .btn-gold {
+            background: linear-gradient(135deg, #DFA408 0%, #FFD700 100%);
+            color: #000;
+            border: none;
+            box-shadow: 0 10px 25px rgba(223, 164, 8, 0.3);
+            animation: pulse-gold 3s infinite;
+        }
+        .btn-gold:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(223, 164, 8, 0.5);
+        }
+
+        /* الأزرار الزجاجية */
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            color: #FFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .btn-outline:hover {
+            background: #FFF;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* زر الأيقونة */
+        .btn-icon {
+            padding: 16px 24px;
+            background: rgba(223, 164, 8, 0.1);
+            color: #DFA408;
+            border: 1px solid #DFA408;
+        }
+        .btn-icon:hover {
+            background: #DFA408;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* --- كروت المشاريع التفاعلية --- */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+
+        .case-card {
+            background: linear-gradient(145deg, #0f0f0f, #050505);
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .case-card:hover {
+            border-color: #DFA408;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .case-icon {
+            font-size: 3.5rem;
+            color: #DFA408;
+            margin-bottom: 25px;
+            transition: 0.4s;
+            text-shadow: 0 0 20px rgba(223, 164, 8, 0.2);
+        }
+        .case-card:hover .case-icon {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .case-card h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 15px; color: #fff; }
+        .case-card p { font-size: 1rem; color: #aaa; margin-bottom: 30px; line-height: 1.6; }
+
+        .case-link {
+            display: inline-block;
+            color: #DFA408;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+        .case-card:hover .case-link { color: #fff; border-bottom: 1px solid #DFA408; gap: 15px; }
+
+        /* --- أنيميشن --- */
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 30px rgba(223, 164, 8, 0.6); } 50% { box-shadow: 0 0 50px rgba(223, 164, 8, 0.8); } }
+        @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0 rgba(223, 164, 8, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(223, 164, 8, 0); } 100% { box-shadow: 0 0 0 0 rgba(223, 164, 8, 0); } }
+
+        /* --- تحسينات الموبايل (Thumb-Friendly) --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .hook { font-size: 1rem; padding: 0 10px; }
+            
+            /* أزرار بعرض الشاشة للضغط السهل */
+            .action-buttons { flex-direction: column; width: 100%; gap: 15px; }
+            .btn { width: 100%; padding: 20px; font-size: 1.1rem; }
+            
+            .case-grid { grid-template-columns: 1fr; }
+            .case-card { padding: 40px 20px; }
+        }
+		/* --- تصميم الفوتر (Footer) --- */
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            border-top: 1px solid #1a1a1a; /* خط فاصل خفيف جداً */
+            color: #666; /* لون رمادي هادئ */
+            font-size: 0.9rem;
+            margin-top: 50px; /* مسافة أمان من الأعلى */
+            background-color: #050505;
+            width: 100%;
+        }
+
+        /* تحسين للموبايل */
+        @media (max-width: 768px) {
+            footer {
+                padding: 2px 15px;
+                font-size: 0.8rem;
+                margin-bottom: 20px; /* مسافة صغيرة في الأسفل */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <img src="Tamira Carter.png" alt="Tamira Carter" class="profile-img" onerror="this.style.display='none'">
+            </div>
+            <h1>Tamira Carter</h1>
+            <div class="subtitle">Market Strategy & Research Analyst</div>
+            <p class="hook">I bridge the gap between raw analytics and board-level strategy, delivering insights that
+                drive measurable growth.</p>
+
+            <div class="action-buttons">
+                <a href="Resume.pdf" class="btn btn-gold" download>
+                    <i class="fa-solid fa-download"></i> Download Resume
+                </a>
+                <a href="mailto:tamiracarter@gmail.com" class="btn btn-outline">
+                    <i class="fa-solid fa-envelope"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/tamiracarter/" target="_blank" class="btn btn-icon">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </header>
+
+        <section class="case-grid">
+            <div class="case-card" onclick="window.location.href='case1.html'">
+                <div class="case-icon"><i class="fa-solid fa-chart-line"></i></div>
+				<span style="font-size: 0.7rem; background: rgba(223, 164, 8, 0.2); color: #DFA408; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">2 Min Read</span>
+                <h2>01. IMPACT</h2>
+                <p>Beyoncé Strategy: Leveraging Cultural Capital for Market Dominance</p>
+                <a href="case1.html" class="case-link">
+                    View Case Study <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="case-card" onclick="window.location.href='case2.html'">
+                <div class="case-icon"><i class="fa-solid fa-globe"></i></div>
+				<span style="font-size: 0.7rem; background: rgba(223, 164, 8, 0.2); color: #DFA408; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">2 Min Read</span>
+                <h2>02. MARKET</h2>
+                <p>Airbnb vs Hotels: Competitive Landscape & Consumer Behavior</p>
+                <a href="case2.html" class="case-link">
+                    View Case Study <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="case-card" onclick="window.location.href='case3.html'">
+                <div class="case-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+				<span style="font-size: 0.7rem; background: rgba(223, 164, 8, 0.2); color: #DFA408; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">2 Min Read</span>
+                <h2>03. PROFIT</h2>
+                <p>Cardinal Hardware: Strategic Market Entry & Growth</p>
+                <a href="case3.html" class="case-link">
+                    View Case Study <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+	<footer>
+        <p>&copy; 2026 Tamira Carter. All Strategic Rights Reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.75rem; color: #444; letter-spacing: 1px; text-transform: uppercase;">
+            Optimized for Executive Review
+        </p>
+    </footer>
+</body>
+</html>
