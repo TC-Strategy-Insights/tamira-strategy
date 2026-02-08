@@ -197,29 +197,40 @@
                 font-size: 0.8rem;
                 margin-bottom: 20px; /* مسافة صغيرة في الأسفل */
             }
+        }/* --- تصميم الكبسولات الجديد (Skills Chips) --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;       /* يسمح بنزول الكبسولات للسطر التالي تلقائياً */
+            justify-content: center; /* توسيط الكبسولات */
+            gap: 10px;             /* مسافة بين كل كبسولة وأخرى */
+            max-width: 700px;
+            margin: 20px auto 40px; /* مسافات خارجية لضبط التباعد */
         }
-	 /* --- تنسيق شريط المهارات (Skills Snapshot) --- */
-        .skills-bar { 
-            color: #888; /* رمادي هادئ */
-            font-size: 0.70rem; 
-            text-transform: uppercase; 
-            letter-spacing: 0px; /* مسافة واسعة بين الحروف للفخامة */
-            margin-top: 0px;
-            margin-bottom: 35px; /* مسافة قبل الأزرار */
-            font-weight: 580;
-            line-height: 1.8;
+
+        .skill-chip {
+            background: rgba(255, 255, 255, 0.05); /* خلفية شفافة راقية */
+            border: 1px solid #333; /* حدود رمادية خفيفة */
+            color: #ccc;
+            padding: 8px 18px;      /* مساحة داخلية مريحة للنص */
+            border-radius: 50px;    /* جعل الحواف دائرية بالكامل */
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease; /* نعومة في الحركة */
+            cursor: default;        /* المؤشر لا يتغير لأنه ليس رابطاً */
         }
-        .skills-bar .separator { 
-            color: #dfa408; /* النقطة ذهبية لربط الهوية البصرية */
-            margin: 0 10px; 
-            font-size: 1rem;
-            vertical-align: middle;
+
+        .skill-chip:hover {
+            border-color: #dfa408;  /* الحدود تصبح ذهبية عند التمرير */
+            color: #fff;            /* النص يضيء بالأبيض */
+            transform: translateY(-2px); /* حركة طفيفة للأعلى */
+            background: rgba(223, 164, 8, 0.1); /* خلفية ذهبية خفيفة جداً */
         }
-        
+
         /* تحسين للموبايل */
         @media (max-width: 768px) {
-            .skills-bar { font-size: 0.60rem; letter-spacing: 0px; padding: 0 10px; }
-            .skills-bar .separator { margin: 0 5px; }
+            .skills-container { gap: 8px; margin-bottom: 30px; }
+            .skill-chip { font-size: 0.75rem; padding: 6px 14px; }
         }
     </style>
 </head>
@@ -232,16 +243,17 @@
                 <img src="Tamira Carter.png" alt="Tamira Carter" class="profile-img" onerror="this.style.display='none'">
             </div>
             <h1>Tamira Carter</h1>
-            <div class="subtitle">Market Strategy & Research Analyst</div>
+            <div class="subtitle">Market Strategy & Research&nbsp;Analyst</div>
             <p class="hook">I bridge the gap between raw analytics and board-level strategy, delivering insights that
                 drive measurable growth.</p>
-          <div class="skills-bar">
-        Executive Storytelling <span class="separator">•</span>
-        Qualitative & Quantitative Research <span class="separator">•</span>
-        Tableau <span class="separator">•</span>
-        Power BI <span class="separator">•</span>
-        SQL & Python <span class="separator">•</span>
-        Excel & PPT Expert
+          <div class="skills-bar"><div class="skills-container">
+        <span class="skill-chip">Executive Storytelling</span>
+        <span class="skill-chip">Qualitative & Quantitative Research</span>
+        <span class="skill-chip">Tableau</span>
+        <span class="skill-chip">Power BI</span>
+        <span class="skill-chip">SQL</span>
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">Excel Expert</span>
     </div>
             <div class="action-buttons">
                 <a href="Resume.pdf" class="btn btn-gold" download>
@@ -297,13 +309,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
