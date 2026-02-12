@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+<head>
+
+
+
+    <meta charset="utf-8" />
+
+
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+
+
+    <title>Market Strategy Analysis - Airbnb vs Hotels</title>
+
+
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+    <script>
+
+
+
+        tailwind.config = {
+
+
+
+            darkMode: "class",
+
+
+
+            theme: {
+
+
+
+                extend: {
+
+
+
+                    colors: {
+
+
+
+                        primary: "#D4AF37", // Gold
+
+
+
+                        secondary: "#2DD4BF", // Teal
+
+
+
+                        "chart-red": "#E15759",
+
+
+
+                        "chart-teal": "#76B7B2",
+
+
+
+                        "chart-blue": "#4E79A7",
+
+
+
+                        "chart-orange": "#F28E2B",
+
+
+
+                        "background-light": "#F9FAFB",
+
+
+
+                        "background-dark": "#111827",
+
+
+
+                        "surface-dark": "#1F2937",
+
+
+
+                        "text-gold": "#D4AF37",
+
+
+
+                        "text-teal": "#14B8A6",
+
+
+
+                    },
+
+
+
+                    fontFamily: {
+
+
+
+                        display: ["Inter", "sans-serif"],
+
+
+
+                        sans: ["Inter", "sans-serif"],
+
+
+
+                    },
+
+
+
+                    borderRadius: {
+
+
+
+                        DEFAULT: "0.5rem",
+
+
+
+                    },
+
+
+
+                    backgroundImage: {
+
+
+
+                        'hero-pattern': "linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+
+
+
+                        'star-pattern': "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('airbnb/star-bg.png')",
+
+
+
+                        'footer-pattern': "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+
+
+
+                    }
+
+
+
+                },
+
+
+
+            },
+
+
+
+        };
+
+
+
+    </script>
+
+
+
+    <style type="text/tailwindcss">
+
+
+
+        :root {
+
+
+
+            --dark-charcoal: #262626;}
+
+
+
+        .clip-arrow {
+
+
+
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+
+
+
+        }
+
+
+
+        .material-symbols-outlined {
+
+
+
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+
+
+        }
+
+
+
+    </style>
+
+
+
+</head>
+
+
+
+<body
+    class="bg-background-light dark:bg-[var(--dark-charcoal)] text-gray-800 dark:text-gray-200 font-sans antialiased overflow-x-hidden">
+
+
+
+    <nav
+        class="bg-black text-white text-xs py-4 px-6 w-full border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+        <div
+            class="max-w-7xl mx-auto flex justify-center space-x-8 uppercase tracking-widest font-semibold items-center">
+            <!-- Home -->
+            <a class="hover:text-[#D4AF37] transition-colors flex items-center gap-2 group" href="index.html">
+                <i class="fas fa-home text-sm group-hover:text-[#D4AF37]"></i> <span
+                    class="hidden md:inline">Home</span>
+            </a>
+
+            <!-- Impact -->
+            <a class="hover:text-[#D4AF37] transition-colors flex items-center gap-2 group" href="case1.html">
+                <i class="fas fa-chart-line text-sm group-hover:text-[#D4AF37]"></i> <span
+                    class="hidden md:inline">Impact</span>
+            </a>
+
+            <!-- Market (Active) -->
+            <a class="text-[#D4AF37] flex items-center gap-2" href="case2.html">
+                <i class="fas fa-globe text-sm"></i> <span class="hidden md:inline">Market</span>
+            </a>
+
+            <!-- Profit -->
+            <a class="hover:text-[#D4AF37] transition-colors flex items-center gap-2 group" href="case3.html">
+                <i class="fas fa-dollar-sign text-sm group-hover:text-[#D4AF37]"></i> <span
+                    class="hidden md:inline">Profit</span>
+            </a>
+        </div>
+    </nav>
+
+
+
+    <header
+        class="relative bg-hero-pattern bg-cover bg-center bg-no-repeat min-h-[90vh] flex flex-col justify-center items-center text-center px-4 py-20 text-white">
+
+
+
+        <div class="max-w-5xl w-full mx-auto">
+
+
+
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight uppercase leading-tight">
+
+
+
+                Market Fragmentation Strategy
+
+
+
+            </h1>
+
+
+
+            <p class="text-lg md:text-xl font-bold mb-12 uppercase tracking-wide text-gray-200">
+
+
+
+                Hotels Command a 5% Reliability Premium
+
+
+
+            </p>
+
+
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 mb-16 relative">
+
+
+
+                <div class="text-center">
+
+
+
+                    <p class="text-lg font-medium text-gray-300 mb-2">Airbnb Avg</p>
+
+
+
+                    <div class="text-7xl md:text-9xl font-black text-secondary drop-shadow-lg tracking-tighter">
+
+
+
+                        $123
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-16 h-16 flex items-center justify-center text-xl font-bold italic shadow-xl z-10 my-4 md:my-0">
+
+
+
+                    VS
+
+
+
+                </div>
+
+
+
+                <div class="text-center">
+
+
+
+                    <p class="text-lg font-medium text-gray-300 mb-2">Hotel Avg</p>
+
+
+
+                    <div class="text-7xl md:text-9xl font-black text-primary drop-shadow-lg tracking-tighter">
+
+
+
+                        $129
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div
+                class="bg-black/40 backdrop-blur-md p-8 rounded-xl border-l-4 border-white max-w-4xl mx-auto text-left shadow-2xl">
+
+
+
+                <p class="text-xl md:text-2xl leading-relaxed">
+
+
+
+                    <span class="font-black text-white uppercase">Strategic Decision:</span>
+
+
+
+                    <span class="text-gray-200">Hotels command a +$6 'Reliability Premium'.</span>
+
+
+
+                    <span class="font-black text-white block mt-2 uppercase">Recommendation:</span>
+
+
+
+                    <span class="text-gray-200">Hold rates steady and leverage service consistency over price
+                        wars.</span>
+
+
+
+                </p>
+
+
+
+            </div>
+
+
+
+            <p class="mt-8 text-xs text-gray-400 uppercase tracking-widest">Scope: NYC Market Analysis (2024) • Source:
+                Tableau Analytics (116k Data Points)</p>
+
+
+
+        </div>
+
+
+
+    </header>
+
+
+
+    <section class="bg-background-light dark:bg-[var(--dark-charcoal)] py-16 md:py-24">
+
+
+
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+
+
+            <div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl group">
+
+
+
+                <img alt="Modern skyscraper representing corporate structure"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-5C7BbVPab-dClH-jo9kDvDt3zPr4DlBlaQSuvqMHVAORbC_yTSj43J35MHPu2J2e9XKc7wV5GQSFwdF7_v9I-45VAJD2z6nBYbDpyux0aNlJ1-uSv61twWl9HUI1JO1WEYSb9fFnBWaEWqDQdjhfGf7KWslL33-4_3aSHOdFSKgtNI6SEqY6paQ9SIgCv-yo--LykA1Fz2-ekPNC_BvKDBplR3dnnWM4892YkDyBXjMu8ySjCRSUxUecTFesBB2JOHYexYG5aow" />
+
+
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+
+
+            </div>
+
+
+
+            <div class="space-y-10">
+
+
+
+                <h2
+                    class="text-4xl font-bold text-gray-900 dark:text-white border-l-8 border-gray-900 dark:border-white pl-6">
+
+
+
+                    Executive Summary
+
+
+
+                </h2>
+
+
+
+                <div class="space-y-8 pl-2">
+
+
+
+                    <div class="flex gap-4">
+
+
+
+                        <span class="material-symbols-outlined text-text-gold text-3xl mt-1">push_pin</span>
+
+
+
+                        <div>
+
+
+
+                            <h3 class="text-text-gold font-bold text-lg uppercase mb-1">01. The Context</h3>
+
+
+
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+
+
+
+                                <span class="font-semibold text-gray-900 dark:text-white">Legacy Blindspot:</span>
+                                Stakeholders lacked unified metrics to benchmark performance across distinct asset
+                                classes (Fixed Hotel Inventory vs. Variable Airbnb Listings). This created a "yield gap"
+                                during high-demand periods.
+
+
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="flex gap-4">
+
+
+
+                        <span class="material-symbols-outlined text-secondary text-3xl mt-1">bolt</span>
+
+
+
+                        <div>
+
+
+
+                            <h3 class="text-secondary font-bold text-lg uppercase mb-1">02. The Action</h3>
+
+
+
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+
+
+
+                                <span class="font-semibold text-gray-900 dark:text-white">Forensic Engineering:</span>
+                                Engineered a proprietary Tableau dashboard to filter 116,000+ data points. Isolated
+                                "Guest Type" behaviors to correct the "Revenue vs. Rate" fallacy and map true demand
+                                drivers.
+
+
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="flex gap-4">
+
+
+
+                        <span class="material-symbols-outlined text-indigo-500 text-3xl mt-1">ads_click</span>
+
+
+
+                        <div>
+
+
+
+                            <h3 class="text-indigo-500 font-bold text-lg uppercase mb-1">03. The Result</h3>
+
+
+
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+
+
+
+                                <span class="font-semibold text-gray-900 dark:text-white">Strategic Nuance:</span>
+                                Validated that Hotels command a "Reliability Premium" ($129 ADR) compared to Airbnb's
+                                "Leisure Flexibility" ($123).<br />
+
+
+
+                                <span class="font-semibold text-gray-900 dark:text-white mt-2 block">Crucial
+                                    Insight:</span> While distinct, competitive overlap spikes during Peak Seasons,
+                                requiring distinct yield strategies rather than a blanket price war.
+
+
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <section class="bg-star-pattern bg-cover bg-fixed py-20 text-white">
+
+
+
+        <div class="max-w-7xl mx-auto px-4">
+
+
+
+            <h2
+                class="text-3xl md:text-5xl font-black text-center mb-16 tracking-tight uppercase transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+
+
+
+                The Strategic Approach (S.T.A.R.)
+
+
+
+            </h2>
+
+
+
+            <div class="grid md:grid-cols-4 gap-8">
+
+
+
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border-t-4 border-text-gold hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+
+
+
+                    <div class="flex items-center gap-2 mb-4">
+
+
+
+                        <span class="material-symbols-outlined text-text-gold">push_pin</span>
+
+
+
+                        <h3 class="font-bold text-text-gold uppercase tracking-wider text-sm">01. Situation</h3>
+
+
+
+                    </div>
+
+
+
+                    <h4 class="font-bold text-lg mb-2 text-white">Panic Pricing</h4>
+
+
+
+                    <p class="text-gray-300 text-sm leading-relaxed">
+
+
+
+                        Stakeholders reacted to Airbnb's growth with reactive price cuts, lacking visibility into
+                        whether they were losing customers to Airbnb or simply facing different demand patterns. This
+                        "Data Blindspot" threatened brand equity.
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border-t-4 border-white hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+
+
+
+                    <div class="flex items-center gap-2 mb-4">
+
+
+
+                        <span class="material-symbols-outlined text-white">track_changes</span>
+
+
+
+                        <h3 class="font-bold text-white uppercase tracking-wider text-sm">02. Task</h3>
+
+
+
+                    </div>
+
+
+
+                    <h4 class="font-bold text-lg mb-2 text-white">Substitute vs. Segment</h4>
+
+
+
+                    <p class="text-gray-300 text-sm leading-relaxed">
+
+
+
+                        The mission was to validate: Is Airbnb a direct <strong class="text-white">"Substitute"</strong>
+                        (requiring aggressive price wars) or a distinct <strong class="text-white">"Market
+                            Segment"</strong> (requiring differentiation)?
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border-t-4 border-secondary hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+
+
+
+                    <div class="flex items-center gap-2 mb-4">
+
+
+
+                        <span class="material-symbols-outlined text-secondary">settings</span>
+
+
+
+                        <h3 class="font-bold text-secondary uppercase tracking-wider text-sm">03. Action</h3>
+
+
+
+                    </div>
+
+
+
+                    <h4 class="font-bold text-lg mb-2 text-white">Dashboard Engineering</h4>
+
+
+
+                    <p class="text-gray-300 text-sm leading-relaxed">
+
+
+
+                        Built a proprietary <strong class="text-white">Tableau Dashboard</strong> (analyzing 116k data
+                        points) to isolate "Guest Type" behaviors. Correlated "Complaint Spikes" with "Occupancy Rates"
+                        to map operational breaking points.
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-lg border-t-4 border-white hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+
+
+
+                    <div class="flex items-center gap-2 mb-4">
+
+
+
+                        <span class="material-symbols-outlined text-white">check_box</span>
+
+
+
+                        <h3 class="font-bold text-white uppercase tracking-wider text-sm">04. Result</h3>
+
+
+
+                    </div>
+
+
+
+                    <h4 class="font-bold text-lg mb-2 text-white">Distinct Segmentation</h4>
+
+
+
+                    <p class="text-gray-300 text-sm leading-relaxed">
+
+
+
+                        Disproved the "Total Substitution" theory. Validated that Hotels command a <strong
+                            class="text-white">"Reliability Premium,"</strong> with direct competitive overlap occurring
+                        <strong class="text-white">only during Peak Seasons</strong> (not year-round).
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <section class="bg-white dark:bg-[#1a1a1a] py-20 border-b border-gray-200 dark:border-gray-700">
+
+
+
+        <div class="max-w-6xl mx-auto px-4">
+
+
+
+            <div class="text-center mb-12">
+
+
+
+                <h2 class="text-2xl md:text-3xl font-black text-gray-900 dark:text-white uppercase mb-2">
+
+
+
+                    Pricing Intelligence: The Reliability Premium
+
+
+
+                </h2>
+
+
+
+                <p class="text-gray-500 dark:text-gray-400 font-medium">
+
+
+
+                    Forensic Analysis of ADR Stability vs. Algorithmic Volatility (Data Source: Tableau, 116k Points)
+
+
+
+                </p>
+
+
+
+            </div>
+
+
+
+            <div class="flex flex-col lg:flex-row gap-8 items-start mb-12">
+
+
+
+                <div
+                    class="w-full lg:w-1/4 flex justify-center items-end gap-6 h-64 border-b border-gray-200 dark:border-gray-600 pb-4 px-4">
+                    <div
+                        class="w-16 bg-secondary flex flex-col justify-start items-center relative h-[90%] rounded-t-sm shadow-sm transition-all duration-300 hover:brightness-110 hover:scale-y-110 origin-bottom cursor-pointer group">
+                        <span
+                            class="text-[10px] font-bold mt-2 text-white text-center leading-tight group-hover:scale-y-[0.9] origin-top transition-transform">Airbnb
+                            ADR
+                            (Avg)</span>
+                        <span
+                            class="text-xl font-black text-white mt-1 group-hover:scale-y-[0.9] origin-top transition-transform">$123</span>
+                    </div>
+
+                    <div
+                        class="w-16 bg-primary flex flex-col justify-start items-center relative h-full rounded-t-sm shadow-sm transition-all duration-300 hover:brightness-110 hover:scale-y-110 origin-bottom cursor-pointer group">
+                        <span
+                            class="text-[10px] font-bold mt-2 text-white text-center leading-tight group-hover:scale-y-[0.9] origin-top transition-transform">Hotel
+                            ADR
+                            (Avg)</span>
+                        <span
+                            class="text-xl font-black text-white mt-1 group-hover:scale-y-[0.9] origin-top transition-transform">$129</span>
+                    </div>
+                </div>
+
+
+
+                <div class="w-full lg:w-3/4">
+
+                    <img src="assets/charts/pricing-strategy-distribution.png" alt="Daily Pricing Strategy Chart"
+                        class="w-full h-auto rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div
+                class="bg-gray-100 dark:bg-[#1a1a1a] rounded-xl p-8 shadow-inner border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] cursor-pointer">
+
+
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase mb-4 text-center">Core Insights:
+                </h3>
+
+
+
+                <ul class="space-y-4 max-w-3xl mx-auto">
+
+
+
+                    <li class="flex items-start gap-3">
+
+
+
+                        <span class="w-2 h-2 mt-2 bg-gray-900 dark:bg-white rounded-full flex-shrink-0"></span>
+
+
+
+                        <p class="text-gray-700 dark:text-gray-300">
+
+
+
+                            <strong>Hotels (The Anchor):</strong> Maintain rigid pricing (~$129) to guarantee
+                            predictability for business travelers.
+
+
+
+                        </p>
+
+
+
+                    </li>
+
+
+
+                    <li class="flex items-start gap-3">
+
+
+
+                        <span class="w-2 h-2 mt-2 bg-gray-900 dark:bg-white rounded-full flex-shrink-0"></span>
+
+
+
+                        <p class="text-gray-700 dark:text-gray-300">
+
+
+
+                            <strong>Airbnb (Yield Volatility Risk):</strong> Uses algorithmic pricing (~$123) to
+                            undercut, appealing only to leisure tourists.
+
+
+
+                        </p>
+
+
+
+                    </li>
+
+
+
+                </ul>
+
+
+
+                <div
+                    class="mt-6 text-center font-bold text-gray-900 dark:text-white p-4 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] cursor-pointer">
+
+
+
+                    RECOMMENDATION: Do not lower rates. The $6 gap is a "Reliability Fee." Stick to your price.
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <section class="bg-gray-50 dark:bg-[var(--dark-charcoal)] py-20">
+
+
+
+        <div class="max-w-6xl mx-auto px-4">
+
+
+
+            <div class="text-center mb-12">
+
+
+
+                <h2 class="text-2xl md:text-3xl font-black text-gray-900 dark:text-white uppercase mb-2">
+
+
+
+                    Seasonality &amp; Operational Risk
+
+
+
+                </h2>
+
+
+
+                <p class="text-gray-500 dark:text-gray-400 font-medium">
+
+
+
+                    Trend Analysis: Peak Season Overlap vs. Complaint Volume (Source: Tableau)
+
+
+
+                </p>
+
+
+
+            </div>
+
+
+
+            <div class="grid lg:grid-cols-2 gap-12">
+
+
+
+                <div
+                    class="bg-white dark:bg-[#252525] p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+
+
+
+                    <img src="assets/charts/airbnb-revenue-analysis.png" alt="Airbnb vs Hotel Revenue Chart"
+                        class="w-full h-auto rounded-lg">
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-gray-100 dark:bg-[#1a1a1a] rounded-lg p-6 text-center transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-200 dark:hover:bg-[#252525] cursor-pointer">
+
+
+
+                    <div class="text-5xl font-black text-red-500 mb-2 count-up" data-target="30">+0%</div>
+
+
+
+                    <div class="text-lg font-bold text-gray-900 dark:text-white">Guest Complaint Rate</div>
+
+
+
+                    <div class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide">During Peak
+                        Overlap</div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="space-y-8 flex flex-col justify-center">
+
+
+
+                <div>
+
+
+
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Insight 01: The Summer Spike
+                        (Overlap):</h3>
+
+
+
+                    <p class="text-gray-600 dark:text-gray-300">
+
+
+
+                        Competitive overlap occurs <strong class="text-gray-900 dark:text-white">strictly during
+                            Summer Peak (Jun-Aug)</strong>. Airbnb inventory absorbs overflow demand when Hotel
+                        occupancy hits &gt;90%.
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+                <div>
+
+
+
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Insight 02: The Quality
+                        Trade-off:</h3>
+
+
+
+                    <p class="text-gray-600 dark:text-gray-300">
+
+
+
+                        High Airbnb occupancy correlates with a <strong class="text-gray-900 dark:text-white">30%
+                            spike in Guest Complaints</strong> (Noise/Cleanliness), whereas Hotels maintain service
+                        consistency.
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-green-100 dark:hover:bg-green-900/40 cursor-pointer">
+
+
+
+                    <p class="text-gray-800 dark:text-gray-200 font-medium text-sm">
+
+
+
+                        <span class="font-bold">✓ RECOMMENDATION:</span> Leverage Airbnb as a "Peak Season Overflow"
+                        channel. Allow competitive overlap strictly during high-demand periods (&gt;90% occupancy)
+                        to protect rate integrity.
+
+
+
+                    </p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <p class="text-center text-[10px] text-gray-400 mt-8 max-w-4xl mx-auto">
+
+
+
+            Data Source: Tableau Analysis of 116k bookings (NYC Market, 2024). Complaint correlations based on
+            sentiment analysis derived specifically during &gt;90% occupancy periods.
+
+
+
+        </p>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <section class="bg-white dark:bg-[var(--dark-charcoal)] py-20 relative overflow-hidden">
+
+
+
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-50 to-white dark:from-[var(--dark-charcoal)] dark:to-[var(--dark-charcoal)] -z-10">
+        </div>
+
+
+
+        <div class="max-w-6xl mx-auto px-4">
+
+
+
+            <div class="text-center mb-16">
+
+
+
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white uppercase mb-4">
+
+
+
+                    Final Decision: Distinct Market Segmentation
+
+
+
+                </h2>
+
+
+
+                <p class="text-xl text-gray-600 dark:text-gray-300 font-medium">
+
+
+
+                    Strategic Mandate &amp; Forward-Looking Protocol (Next Steps)
+
+
+
+                </p>
+
+
+
+            </div>
+
+
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+
+
+                <div
+                    class="bg-white dark:bg-[#252525] border-2 border-primary rounded-xl p-8 md:px-10 relative transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-1 cursor-pointer">
+
+
+
+                    <div
+                        class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-[#252525] p-2 rounded-full border-2 border-primary">
+
+
+
+                        <span class="material-symbols-outlined text-primary text-4xl">shield</span>
+
+
+
+                    </div>
+
+
+
+                    <h3 class="text-center text-primary font-bold text-lg uppercase mt-6 mb-6 tracking-wider">The
+                        Defender Protocol</h3>
+
+
+
+                    <ul class="space-y-4 text-base leading-relaxed text-gray-600 dark:text-gray-300 pl-2">
+
+
+
+                        <li>
+
+
+
+                            <strong class="text-gray-900 dark:text-white">• Target:</strong> Corporate &amp;
+                            High-Value Travelers.
+
+
+
+                        </li>
+
+
+
+                        <li>
+
+
+
+                            <strong class="text-gray-900 dark:text-white">• The Mandate:</strong> Maintain
+                            the <strong class="text-primary">"Reliability Premium"</strong> ($129). Do not drop rates to
+                            match Airbnb. Your competitive advantage is <strong
+                                class="text-gray-900 dark:text-white">Service Consistency</strong>, not price.
+
+
+
+                        </li>
+
+
+
+                    </ul>
+
+
+
+                </div>
+
+
+
+                <div
+                    class="bg-white dark:bg-[#252525] border-2 border-secondary rounded-xl p-8 md:px-10 relative transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-1 cursor-pointer">
+
+
+
+                    <div
+                        class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-[#252525] p-2 rounded-full border-2 border-secondary">
+
+
+
+                        <span class="material-symbols-outlined text-secondary text-4xl">rocket_launch</span>
+
+
+
+                    </div>
+
+
+
+                    <h3 class="text-center text-secondary font-bold text-lg uppercase mt-6 mb-6 tracking-wider">The
+                        Attacker Reality</h3>
+
+
+
+                    <ul class="space-y-4 text-base leading-relaxed text-gray-600 dark:text-gray-300 pl-2">
+
+
+
+                        <li>
+
+
+
+                            <strong class="text-gray-900 dark:text-white">• Target:</strong> Price-Sensitive
+                            Leisure Tourists.
+
+
+
+                        </li>
+
+
+
+                        <li>
+
+
+
+                            <strong class="text-gray-900 dark:text-white">• The Mandate:</strong> Monitor
+                            Airbnb as a <strong class="text-secondary">"Demand Barometer"</strong> only. Their
+                            algorithmic pricing ($123) targets a volatile segment that hotels should not chase.
+
+
+
+                        </li>
+
+
+
+                    </ul>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <footer class="bg-footer-pattern bg-cover bg-center text-white pt-20 pb-8 border-t-8 border-primary relative">
+
+
+
+        <div class="absolute inset-0 bg-black/90"></div>
+
+
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4">
+
+
+
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-2 uppercase">Execution Roadmap</h2>
+
+
+
+            <h3 class="text-2xl md:text-3xl font-black text-center text-text-gold mb-16 uppercase tracking-wider">Risk
+                Mitigation &amp; Next Steps</h3>
+
+
+
+            <div class="grid md:grid-cols-1 gap-10 max-w-4xl mx-auto mb-20">
+
+
+
+                <div class="flex gap-6 items-start">
+
+
+
+                    <span class="material-symbols-outlined text-text-gold text-2xl mt-1">warning</span>
+
+
+
+                    <div>
+
+
+
+                        <h4 class="font-bold text-lg uppercase mb-1">01. The Summer Risk:</h4>
+
+
+
+                        <p class="text-gray-400 leading-relaxed">
+
+
+
+                            Competitive overlap spikes during <strong class="text-white">Jun-Aug</strong>. Maintain Rate
+                            Integrity and use Airbnb as a strategic volume valve.
+
+
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="flex gap-6 items-start">
+
+
+
+                    <span class="material-symbols-outlined text-text-gold text-2xl mt-1">settings_suggest</span>
+
+
+
+                    <div>
+
+
+
+                        <h4 class="font-bold text-lg uppercase mb-1">02. Deploy Dashboard:</h4>
+
+
+
+                        <p class="text-gray-400 leading-relaxed">
+
+
+
+                            Integrate the Tableau dashboard into weekly meetings to monitor the "Yield Gap" vs. Market
+                            Volatility.
+
+
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="flex gap-6 items-start">
+
+
+
+                    <span class="material-symbols-outlined text-text-gold text-2xl mt-1">lock</span>
+
+
+
+                    <div>
+
+
+
+                        <h4 class="font-bold text-lg uppercase mb-1">03. Yield Fencing:</h4>
+
+
+
+                        <p class="text-gray-400 leading-relaxed">
+
+
+
+                            Restrict discounts during Peak Seasons. Strategically redirect price-sensitive demand to the
+                            Airbnb segment.
+
+
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div
+                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+
+
+
+                <div class="mb-4 md:mb-0">
+                    <p class="text-lg font-medium text-gray-300">Tamira Carter <span class="text-gray-500 mx-2">|</span>
+                        <span class="text-gray-400 text-sm uppercase tracking-wider">Market Strategy Consultant</span>
+                    </p>
+                </div>
+
+                <div class="flex space-x-4">
+                    <a class="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-colors"
+                        href="mailto:tamiracarter@gmail.com">
+                        <span class="material-icons text-lg">email</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-colors"
+                        href="https://www.linkedin.com/in/tamiracarter" target="_blank">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="border-t border-gray-700 mt-8"></div>
+
+
+
+            <div class="text-center text-[10px] text-gray-700 mt-8 uppercase tracking-widest">
+
+
+
+                © 2026 Tamira Carter. All Strategic Rights Reserved. <br /> Optimized for Executive Review
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </footer>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.count-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000;
+                        const frameDuration = 1000 / 60;
+                        const totalFrames = Math.round(duration / frameDuration);
+                        const increment = target / totalFrames;
+
+                        let current = 0;
+                        const updateCount = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = "+" + Math.ceil(current) + "%";
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                counter.innerText = "+" + target + "%";
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            counters.forEach(counter => observer.observe(counter));
+        });
+    </script>
+</body>
+
+</html>

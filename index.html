@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamira Carter | Strategic Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tamira Carter | Market Strategy & Research">
+    <meta property="og:description"
+        content="Bridging the gap between raw analytics and boardroom strategy. Unlock the $4.5B Impact Analysis.">
+    <meta property="og:image" content="Tamira Carter.png">
+    <meta property="og:url" content="https://tc-strategy-insights.github.io/tamira-strategy/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Profile Ring Animation */
+        @keyframes pulse-ring {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(212, 175, 55, 0.8);
+            }
+        }
+
+        .profile-ring {
+            animation: pulse-ring 2s infinite;
+        }
+
+        /* Gold Button Pulse */
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        .btn-gold {
+            animation: pulse-gold 3s infinite;
+        }
+
+        /* Smooth Transitions */
+        * {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Custom Colors */
+        :root {
+            --gold: #D4AF37;
+            --black: #050505;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#D4AF37',
+                        'rich-black': '#050505',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-rich-black text-white font-inter overflow-x-hidden">
+
+    <!-- Header Section -->
+    <header class="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 text-center">
+
+        <!-- Profile Image with Ring -->
+        <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-8">
+            <!-- Golden Ring -->
+            <div class="absolute -inset-3 rounded-full border-3 border-gold profile-ring"></div>
+            <!-- Profile Image -->
+            <img src="Tamira Carter.png" alt="Tamira Carter" width="224" height="224" fetchpriority="high"
+                class="relative w-full h-full rounded-full object-cover object-top z-10"
+                onerror="this.style.display='none'">
+        </div>
+
+        <!-- Name -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 tracking-tight">
+            Tamira Carter
+        </h1>
+
+        <!-- Subtitle -->
+        <div class="text-gold text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-8">
+            Market Strategy & Research&nbsp;Analyst
+        </div>
+
+        <!-- Hook/Tagline -->
+        <p class="text-base sm:text-lg lg:text-xl font-light text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed px-4">
+            I bridge the gap between raw analytics and board-level strategy, delivering insights that drive measurable
+            growth.
+        </p>
+
+        <!-- Skills Chips -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto mb-10">
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                Executive Storytelling
+            </span>
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                Qualitative & Quantitative Research
+            </span>
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                Tableau
+            </span>
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                Power BI
+            </span>
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                SQL
+            </span>
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                Python
+            </span>
+            <span
+                class="px-4 py-2 bg-gray-800 text-white text-xs sm:text-sm font-medium rounded-full border border-gray-700 hover:border-gold hover:bg-gray-700 cursor-default">
+                Excel Expert
+            </span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-5 mb-12">
+            <!-- Download Resume - Gold Button -->
+            <a href="Resume.pdf" download
+                class="btn-gold w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-black font-bold text-base rounded-full shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1">
+                <i class="fas fa-download"></i>
+                Download Resume
+            </a>
+
+            <!-- Email Me - Outline Button -->
+            <a href="mailto:tamiracarter@gmail.com"
+                class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/20 text-white font-bold text-base rounded-full backdrop-blur-sm hover:bg-white hover:text-black hover:-translate-y-1">
+                <i class="fas fa-envelope"></i>
+                Email Me
+            </a>
+
+            <!-- LinkedIn - Icon Button -->
+            <a href="https://www.linkedin.com/in/tamiracarter/" target="_blank"
+                class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gold/10 border border-gold text-gold font-bold text-base rounded-full hover:bg-gold hover:text-black hover:-translate-y-1">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </header>
+
+    <!-- Case Studies Section -->
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+            <!-- Case Study 1: Beyoncé / IMPACT -->
+            <div class="group bg-gradient-to-br from-gray-900 to-rich-black border border-gray-800 rounded-2xl p-8 sm:p-10 text-center cursor-pointer hover:border-gold hover:-translate-y-3 hover:shadow-2xl"
+                onclick="window.location.href='case1.html'">
+                <!-- Badge -->
+                <span
+                    class="inline-block px-3 py-1 bg-gold/20 text-gold text-xs font-semibold rounded-full uppercase tracking-wider mb-6">
+                    2 Min Read
+                </span>
+
+                <!-- Icon -->
+                <div class="text-6xl text-gold mb-6 group-hover:scale-110 group-hover:text-white">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-2xl font-bold mb-4 text-white">01. IMPACT</h2>
+
+                <!-- Description -->
+                <p class="text-gray-400 text-base mb-6 leading-relaxed">
+                    Beyoncé Strategy: Leveraging Cultural Capital for Market Dominance
+                </p>
+
+                <!-- Link -->
+                <a href="case1.html"
+                    class="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:text-white group-hover:gap-4">
+                    View Case Study
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Case Study 2: Airbnb / MARKET -->
+            <div class="group bg-gradient-to-br from-gray-900 to-rich-black border border-gray-800 rounded-2xl p-8 sm:p-10 text-center cursor-pointer hover:border-gold hover:-translate-y-3 hover:shadow-2xl"
+                onclick="window.location.href='case2.html'">
+                <!-- Badge -->
+                <span
+                    class="inline-block px-3 py-1 bg-gold/20 text-gold text-xs font-semibold rounded-full uppercase tracking-wider mb-6">
+                    2 Min Read
+                </span>
+
+                <!-- Icon -->
+                <div class="text-6xl text-gold mb-6 group-hover:scale-110 group-hover:text-white">
+                    <i class="fas fa-globe"></i>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-2xl font-bold mb-4 text-white">02. MARKET</h2>
+
+                <!-- Description -->
+                <p class="text-gray-400 text-base mb-6 leading-relaxed">
+                    Airbnb vs Hotels: Competitive Landscape & Consumer Behavior
+                </p>
+
+                <!-- Link -->
+                <a href="case2.html"
+                    class="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:text-white group-hover:gap-4">
+                    View Case Study
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Case Study 3: Cardinal / PROFIT -->
+            <div class="group bg-gradient-to-br from-gray-900 to-rich-black border border-gray-800 rounded-2xl p-8 sm:p-10 text-center cursor-pointer hover:border-gold hover:-translate-y-3 hover:shadow-2xl"
+                onclick="window.location.href='case3.html'">
+                <!-- Badge -->
+                <span
+                    class="inline-block px-3 py-1 bg-gold/20 text-gold text-xs font-semibold rounded-full uppercase tracking-wider mb-6">
+                    2 Min Read
+                </span>
+
+                <!-- Icon -->
+                <div class="text-6xl text-gold mb-6 group-hover:scale-110 group-hover:text-white">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-2xl font-bold mb-4 text-white">03. PROFIT</h2>
+
+                <!-- Description -->
+                <p class="text-gray-400 text-base mb-6 leading-relaxed">
+                    Cardinal Hardware: Strategic Market Entry & Growth
+                </p>
+
+                <!-- Link -->
+                <a href="case3.html"
+                    class="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:text-white group-hover:gap-4">
+                    View Case Study
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 py-6 sm:py-8 text-center">
+        <p class="text-gray-600 text-sm mb-2">
+            &copy; 2026 Tamira Carter. All Strategic Rights Reserved.
+        </p>
+        <p class="text-gray-700 text-xs uppercase tracking-widest">
+            Optimized for Executive Review
+        </p>
+    </footer>
+
+</body>
+
+</html>

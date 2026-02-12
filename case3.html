@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cardinal - Margin Protection Strategy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#15803d",
+                        secondary: "#EF4444",
+                        accent: "#D4AF37",
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                        "text-light": "#1f2937",
+                        "text-dark": "#e2e8f0",
+                        "muted-light": "#6b7280",
+                        "muted-dark": "#94a3b8",
+                        "chart-green": "#22C55E",
+                        "chart-green-dark": "#166534",
+                        "chart-red": "#EF4444",
+                        "chart-black": "#1f2937",
+                        "chart-grey": "#9ca3af",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        'lg': "0.5rem",
+                        'xl': "1rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .donut-segment {
+            transition: stroke-dasharray 0.5s ease;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+    <nav
+        class="bg-black text-white text-xs py-4 px-6 w-full border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+        <div
+            class="max-w-7xl mx-auto flex justify-center space-x-8 uppercase tracking-widest font-semibold items-center">
+            <!-- Home -->
+            <a class="hover:text-[#D4AF37] transition-colors flex items-center gap-2 group" href="index.html">
+                <i class="fas fa-home text-sm group-hover:text-[#D4AF37]"></i> <span
+                    class="hidden md:inline">Home</span>
+            </a>
+
+            <!-- Impact -->
+            <a class="hover:text-[#D4AF37] transition-colors flex items-center gap-2 group" href="case1.html">
+                <i class="fas fa-chart-line text-sm group-hover:text-[#D4AF37]"></i> <span
+                    class="hidden md:inline">Impact</span>
+            </a>
+
+            <!-- Market -->
+            <a class="hover:text-[#D4AF37] transition-colors flex items-center gap-2 group" href="case2.html">
+                <i class="fas fa-globe text-sm group-hover:text-[#D4AF37]"></i> <span
+                    class="hidden md:inline">Market</span>
+            </a>
+
+            <!-- Profit (Active) -->
+            <a class="text-[#D4AF37] flex items-center gap-2" href="case3.html">
+                <i class="fas fa-dollar-sign text-sm"></i> <span class="hidden md:inline">Profit</span>
+            </a>
+        </div>
+    </nav>
+    <main class="max-w-6xl mx-auto px-8 py-16 space-y-24">
+        <section class="space-y-12">
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-8">
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-black dark:text-white uppercase">
+                    MARGIN PROTECTION STRATEGY</h1>
+                <p class="text-lg text-gray-500 dark:text-gray-400 font-normal">Engineering a +$598k Net Profit Uplift
+                    via Elasticity-Based Pricing Models</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <div class="flex items-baseline space-x-2">
+                        <span
+                            class="text-6xl md:text-7xl font-bold text-gray-600 dark:text-gray-400 tracking-tighter">$727k</span>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mt-2">Projected Cost Surge (Inflation)</p>
+                </div>
+                <div>
+                    <div class="flex items-baseline space-x-2">
+                        <span class="text-6xl md:text-7xl font-bold text-[#166534] tracking-tighter">+$598k</span>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mt-2">Net Profit Retained</p>
+                </div>
+            </div>
+            <div class="space-y-2 pt-2">
+                <p class="text-base font-medium text-gray-800 dark:text-gray-200">Outcome: Preserved margins despite 52%
+                    supplier cost inflation.</p>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400">Scope: Annual Pricing Review (236k Units) •
+                    Source: Financial Impact Analysis</p>
+            </div>
+        </section>
+        <section class="space-y-8">
+            <h2
+                class="text-2xl font-bold uppercase tracking-wide border-b border-gray-300 dark:border-gray-600 pb-4 inline-block w-full text-black dark:text-white">
+                Executive Summary</h2>
+            <div class="space-y-8">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-black dark:text-white"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">circle</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm uppercase mb-1 text-black dark:text-white">01. THE CONTEXT</h3>
+                        <p class="text-sm leading-relaxed text-gray-800 dark:text-gray-300 max-w-4xl">
+                            Supplier Inflation Risk: Rising raw material costs—driven by single-source dependency on
+                            China (52% volume)—threatened margins. Legacy pricing models failed to pace with rapid cost
+                            surges.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-black dark:text-white"
+                            style="font-size: 20px;">settings</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm uppercase mb-1 text-black dark:text-white">02. THE ACTION</h3>
+                        <p class="text-sm leading-relaxed text-gray-800 dark:text-gray-300 max-w-4xl">
+                            Elasticity Segmentation: Rejected blanket price hikes. Executed a tiered increase strategy
+                            (5%, 10%, 15%) based on product demand elasticity to protect volume while capturing value.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-[#166534]"
+                            style="font-size: 20px;">insert_chart</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-[#166534] text-sm uppercase mb-1">03. THE RESULT</h3>
+                        <p class="text-sm leading-relaxed text-gray-800 dark:text-gray-300 max-w-4xl">
+                            Fiscal Resilience: Engineered a +$598k Net Profit uplift. Validated that data-led pricing
+                            acts as an inflation shield, turning a potential crisis into a revenue growth engine.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-[10px] text-gray-500 dark:text-gray-400 pt-8">Source: Financial Impact Analysis &amp;
+                Supplier Data</p>
+        </section>
+        <section class="grid md:grid-cols-2 gap-16 items-start">
+            <div class="space-y-8">
+                <h2 class="text-2xl font-bold uppercase tracking-wide text-black dark:text-white">SUPPLY CHAIN EXPOSURE
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 italic font-medium text-sm">Strategic Lever: Transforming
+                    Risk into Negotiation Power</p>
+                <div class="border-t border-gray-300 dark:border-gray-600 pt-8 pb-8">
+                    <p class="text-sm text-gray-800 dark:text-gray-200 leading-relaxed font-medium">52% of volume
+                        single-sourced from China; inflation-driven cost surge modeled at $727k.</p>
+                </div>
+                <div class="border-b border-gray-300 dark:border-gray-600 w-full mb-4"></div>
+                <p class="text-[10px] text-gray-500 dark:text-gray-400">Source: Internal Vendor Data (Slide 7) -
+                    Analysis of 236k units.</p>
+            </div>
+            <div class="flex flex-col">
+                <div class="flex space-x-6 mb-4 text-[11px] font-bold self-start md:self-start">
+                    <div class="flex items-center"><span
+                            class="w-3 h-3 bg-black dark:bg-gray-200 mr-2 inline-block"></span> China
+                    </div>
+                    <div class="flex items-center"><span class="w-3 h-3 bg-[#D1D5DB] mr-2 inline-block"></span> Germany
+                    </div>
+                    <div class="flex items-center"><span class="w-3 h-3 bg-[#6B7280] mr-2 inline-block"></span> USA
+                    </div>
+                </div>
+                <div class="relative w-64 h-64 self-center md:self-start mt-4" id="donutChartContainer">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100" id="donutChart">
+                        <!-- Germany: 24.57% = 61.7 arc, starts after China+USA = offset -(131.8+57.8) -->
+                        <circle cx="50" cy="50" fill="transparent" r="40" stroke="#D1D5DB" stroke-dasharray="61.7 189.6"
+                            stroke-dashoffset="-189.6" stroke-width="15" class="donut-segment" data-country="Germany"
+                            data-value="58,003" data-percent="24.6%"
+                            style="cursor:pointer; transition: opacity 0.2s, stroke-width 0.2s;"></circle>
+                        <!-- USA: 23.00% = 57.8 arc, starts after China = offset -131.8 -->
+                        <circle cx="50" cy="50" fill="transparent" r="40" stroke="#6B7280" stroke-dasharray="57.8 193.5"
+                            stroke-dashoffset="-131.8" stroke-width="15" class="donut-segment" data-country="USA"
+                            data-value="54,254" data-percent="23.0%"
+                            style="cursor:pointer; transition: opacity 0.2s, stroke-width 0.2s;"></circle>
+                        <!-- China: 52.44% = 131.8 arc, starts at 0 -->
+                        <circle cx="50" cy="50" fill="transparent" r="40" stroke="#166534"
+                            stroke-dasharray="131.8 119.5" stroke-dashoffset="0" stroke-width="15" class="donut-segment"
+                            data-country="China" data-value="123,771" data-percent="52.4%"
+                            style="cursor:pointer; transition: opacity 0.2s, stroke-width 0.2s;"></circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <span class="text-3xl font-bold text-[#166534]" id="chinaPercent">0%</span>
+                        <span class="text-[10px] font-medium text-black dark:text-black uppercase tracking-wide">China
+                            Vol</span>
+                    </div>
+                    <!-- Tooltip -->
+                    <div id="donutTooltip"
+                        class="absolute hidden bg-gray-900 text-white text-xs rounded-lg px-3 py-2 pointer-events-none shadow-lg z-10"
+                        style="min-width: 120px;">
+                        <div class="font-bold" id="tooltipCountry"></div>
+                        <div class="text-gray-300" id="tooltipValue"></div>
+                        <div class="text-gray-400" id="tooltipPercent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grid md:grid-cols-2 gap-16">
+            <div class="md:order-1">
+                <div class="grid grid-cols-3 border border-gray-300 dark:border-gray-600 text-center text-xs"
+                    id="pricingTable">
+                    <div
+                        class="p-3 font-bold border-b border-r border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 uppercase tracking-wider">
+                        COMMODITY</div>
+                    <div
+                        class="p-3 font-bold border-b border-r border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 uppercase tracking-wider">
+                        CORE</div>
+                    <div
+                        class="p-3 font-bold border-b border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 uppercase tracking-wider">
+                        SPECIALTY</div>
+                    <div
+                        class="p-4 border-b border-r border-gray-300 dark:border-gray-600 py-6 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        High Elasticity</div>
+                    <div
+                        class="p-4 border-b border-r border-gray-300 dark:border-gray-600 py-6 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Medium Elasticity</div>
+                    <div
+                        class="p-4 border-b border-gray-300 dark:border-gray-600 py-6 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Inelastic</div>
+                    <div class="p-4 text-3xl font-bold border-b border-r border-gray-300 dark:border-gray-600 py-8 text-black dark:text-white pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105"
+                        data-count="5" id="pricingVal1">
+                        0%</div>
+                    <div class="p-4 text-3xl font-bold border-b border-r border-gray-300 dark:border-gray-600 py-8 text-black dark:text-white pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105"
+                        data-count="10" id="pricingVal2">
+                        0%</div>
+                    <div class="p-4 text-3xl font-bold text-[#166534] border-b border-gray-300 dark:border-gray-600 py-8 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105"
+                        data-count="15" id="pricingVal3">
+                        0%</div>
+                    <div
+                        class="p-4 text-[10px] italic border-r border-gray-300 dark:border-gray-600 py-5 text-gray-600 dark:text-gray-400 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Protect Volume</div>
+                    <div
+                        class="p-4 text-[10px] italic border-r border-gray-300 dark:border-gray-600 py-5 text-gray-600 dark:text-gray-400 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Balance Growth</div>
+                    <div
+                        class="p-4 text-[10px] italic py-5 text-gray-600 dark:text-gray-400 pricing-cell transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Maximize Margin</div>
+                </div>
+            </div>
+            <div class="md:order-2 space-y-6">
+                <h2 class="text-2xl font-bold uppercase tracking-wide text-black dark:text-white">STRATEGIC PRICING
+                    ARCHITECTURE</h2>
+                <h3 class="font-bold text-gray-900 dark:text-white text-base">The "Inflation Firewall" Methodology</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Price sensitivity was estimated using historical price and volume patterns by product tier, then
+                    tested through scenario simulations (5%, 10%, 15%) to identify the increase that maximized margin
+                    while keeping volume loss within acceptable thresholds.
+                </p>
+                <div class="border-t border-gray-300 dark:border-gray-600 w-full pt-4 mt-8">
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Source: Pricing Elasticity Model &amp; SKU
+                        Analysis (2024)</p>
+                </div>
+            </div>
+        </section>
+        <section class="grid md:grid-cols-2 gap-16 items-end">
+            <div class="space-y-6 mb-8">
+                <h2 class="text-2xl font-bold uppercase tracking-wide text-black dark:text-white">MARGIN EXPANSION &amp;
+                    PROFIT CAPTURE</h2>
+                <h3 class="font-bold text-gray-900 dark:text-white text-base">Turning Inflationary Pressure into Net
+                    Gains</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Despite a $727k cost surge driven by supplier inflation, our elasticity-based pricing strategy
+                    generated $1.32M in revenue uplift. This fully offset costs and delivered a profitability increase
+                    of +$598k.
+                </p>
+                <hr class="border-t border-gray-300 dark:border-gray-600 my-6 w-full">
+                <p class="text-[10px] text-gray-500 dark:text-gray-400 leading-relaxed mt-4">
+                    $1.32M reflects incremental pricing revenue; profit retained reflects contribution margin after
+                    modeled inflation impact (CM-based). Figures rounded.
+                </p>
+                <div class="pt-2">
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400">Source: Financial Impact Analysis &amp;
+                        Supplier Data</p>
+                </div>
+            </div>
+            <div class="flex justify-around items-end h-80 pb-0 w-full max-w-lg mx-auto md:mx-0" id="waterfallChart">
+                <!-- Bar 1: Inflation Impact -->
+                <div class="flex flex-col items-center group w-20 cursor-pointer">
+                    <span
+                        class="mb-2 font-bold text-sm text-black dark:text-white transition-transform duration-300 group-hover:-translate-y-1"
+                        id="waterfallVal1" data-val="-727" data-suffix="k">-$727k</span>
+                    <div
+                        class="w-16 bg-[#EF4444] h-32 relative shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg rounded-tl-md rounded-tr-md">
+                    </div>
+                    <span
+                        class="mt-3 text-[10px] text-center font-medium leading-tight text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:font-bold">Inflation<br />Impact</span>
+                </div>
+                <!-- Bar 2: Pricing Revenue -->
+                <div class="flex flex-col items-center group w-20 cursor-pointer">
+                    <span
+                        class="mb-2 font-bold text-sm text-black dark:text-white transition-transform duration-300 group-hover:-translate-y-1"
+                        id="waterfallVal2" data-val="1.32" data-suffix="M">+$1.32M</span>
+                    <div
+                        class="w-16 bg-[#4ADE80] h-52 relative shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg rounded-tl-md rounded-tr-md">
+                    </div>
+                    <span
+                        class="mt-3 text-[10px] text-center font-medium leading-tight text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:font-bold">Pricing<br />Revenue</span>
+                </div>
+                <!-- Bar 3: Profit Retained -->
+                <div class="flex flex-col items-center group w-20 cursor-pointer">
+                    <span
+                        class="mb-2 font-bold text-xl text-[#166534] dark:text-[#22C55E] transition-transform duration-300 group-hover:-translate-y-1"
+                        id="waterfallVal3" data-val="598" data-suffix="k">+$598k</span>
+                    <div
+                        class="w-16 bg-[#166534] h-60 relative shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg rounded-tl-md rounded-tr-md">
+                    </div>
+                    <span
+                        class="mt-3 text-[10px] text-center font-medium leading-tight text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:font-bold">Profit
+                        Retained<br />(CM)</span>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-12 pt-8">
+            <h2 class="text-2xl font-bold uppercase tracking-wide text-black dark:text-white">PHASED IMPLEMENTATION
+                ROADMAP</h2>
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-1 space-y-4">
+                    <h3 class="font-bold text-gray-900 dark:text-white">Mitigating Churn Risk via Staged Rollout</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                        To prevent client shock, price increases are rolled out in three phases. We prioritize low-risk
+                        segments first (Pilot) before moving to core accounts, ensuring stability.
+                    </p>
+                    <div class="pt-4 border-t border-gray-400 dark:border-gray-600">
+                        <p class="text-[10px] text-gray-500 dark:text-gray-400">Source: Internal Strategy &amp;
+                            Operations Planning</p>
+                    </div>
+                </div>
+                <!-- Roadmap Visual -->
+                <div class="md:col-span-2 relative py-8 px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0 relative z-10">
+
+                        <!-- Q1: Pilot -->
+                        <div class="flex flex-col items-center text-center w-full relative group">
+                            <!-- Desktop Connector Line -->
+                            <div
+                                class="hidden md:block absolute top-[60px] left-[50%] right-[-50%] h-[1px] bg-gray-300 dark:bg-gray-600 -z-10">
+                            </div>
+                            <div
+                                class="bg-gray-200 dark:bg-gray-700 rounded-full w-32 h-32 flex flex-col justify-center items-center p-2 z-10 border-4 border-white dark:border-gray-900 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:bg-white dark:group-hover:bg-gray-800 group-hover:border-gray-300 cursor-pointer">
+                                <span
+                                    class="font-bold text-xs uppercase mb-1 text-black dark:text-white group-hover:text-primary transition-colors">Q1:
+                                    Pilot</span>
+                                <span
+                                    class="text-[9px] leading-tight text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Top
+                                    20 Low-Risk<br />Clients</span>
+                            </div>
+                            <!-- Desktop GATE 1 -->
+                            <div
+                                class="hidden md:flex absolute -right-7 top-[64px] transform -translate-y-1/2 bg-black text-white text-[9px] font-bold w-12 h-12 rotate-45 items-center justify-center z-20 border-2 border-white dark:border-gray-800 shadow-sm">
+                                <span class="-rotate-45">GATE</span>
+                            </div>
+                            <div
+                                class="mt-4 text-[9px] font-bold text-gray-500 uppercase tracking-wide group-hover:text-black dark:group-hover:text-white transition-colors">
+                                KPI: &lt; 5%
+                                Churn Rate</div>
+                            <!-- Mobile GATE 1 (Visible only on mobile) -->
+                            <div
+                                class="flex md:hidden bg-black text-white text-[9px] font-bold w-10 h-10 rotate-45 items-center justify-center z-20 border-2 border-white dark:border-gray-800 shadow-sm mt-6 mb-2">
+                                <span class="-rotate-45">GATE</span>
+                            </div>
+                        </div>
+
+                        <!-- Q2: Rollout -->
+                        <div class="flex flex-col items-center text-center w-full relative group">
+                            <!-- Desktop Connector Line -->
+                            <div
+                                class="hidden md:block absolute top-[60px] left-[50%] right-[-50%] h-[1px] bg-gray-300 dark:bg-gray-600 -z-10">
+                            </div>
+                            <div
+                                class="bg-gray-200 dark:bg-gray-700 rounded-full w-32 h-32 flex flex-col justify-center items-center p-2 z-10 border-4 border-white dark:border-gray-900 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:bg-white dark:group-hover:bg-gray-800 group-hover:border-gray-300 cursor-pointer">
+                                <span
+                                    class="font-bold text-xs uppercase mb-1 text-black dark:text-white group-hover:text-primary transition-colors">Q2:
+                                    Rollout</span>
+                                <span
+                                    class="text-[9px] leading-tight text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Global
+                                    Price<br />Update (Core SKUs)</span>
+                            </div>
+                            <!-- Desktop GATE 2 -->
+                            <div
+                                class="hidden md:flex absolute -right-7 top-[64px] transform -translate-y-1/2 bg-black text-white text-[9px] font-bold w-12 h-12 rotate-45 items-center justify-center z-20 border-2 border-white dark:border-gray-800 shadow-sm">
+                                <span class="-rotate-45">GATE</span>
+                            </div>
+                            <div
+                                class="mt-4 text-[9px] font-bold text-gray-500 uppercase tracking-wide group-hover:text-black dark:group-hover:text-white transition-colors">
+                                KPI: 80%
+                                Adoption</div>
+                            <!-- Mobile GATE 2 (Visible only on mobile) -->
+                            <div
+                                class="flex md:hidden bg-black text-white text-[9px] font-bold w-10 h-10 rotate-45 items-center justify-center z-20 border-2 border-white dark:border-gray-800 shadow-sm mt-6 mb-2">
+                                <span class="-rotate-45">GATE</span>
+                            </div>
+                        </div>
+
+                        <!-- Q3: Capture -->
+                        <div class="flex flex-col items-center text-center w-full relative group">
+                            <div
+                                class="bg-gray-200 dark:bg-gray-700 rounded-full w-32 h-32 flex flex-col justify-center items-center p-2 z-10 border-4 border-white dark:border-gray-900 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:bg-white dark:group-hover:bg-gray-800 group-hover:border-gray-300 cursor-pointer">
+                                <span
+                                    class="font-bold text-xs uppercase mb-1 text-black dark:text-white group-hover:text-primary transition-colors">Q3:
+                                    Capture</span>
+                                <span
+                                    class="text-[9px] leading-tight text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Full
+                                    Margin<br />Realization</span>
+                            </div>
+                            <div
+                                class="mt-4 text-[9px] font-bold text-gray-500 uppercase tracking-wide group-hover:text-black dark:group-hover:text-white transition-colors">
+                                KPI: +$598k
+                                Margin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Slide 7: Full Width Dark Finale -->
+    <div class="w-full h-px bg-gray-100 dark:bg-gray-800"></div>
+    <section class="w-full bg-black py-20">
+        <div class="max-w-6xl mx-auto px-8">
+            <!-- Main Content -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
+                        Ready to<br />
+                        <span class="text-[#D4AF37]">Engineer Profitability?</span>
+                    </h2>
+                    <h3 class="text-xl font-medium text-gray-400">
+                        Transforming operational risks into measurable margin growth.
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Identity & Icons Row -->
+            <div class="flex flex-col md:flex-row justify-between items-center mt-24 mb-8">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <p class="text-lg font-medium text-gray-400">Tamira Carter <span class="text-gray-500 mx-2">|</span>
+                        <span class="text-gray-400 text-sm uppercase tracking-wider">Market Strategy Consultant</span>
+                    </p>
+                </div>
+
+                <div class="flex space-x-4">
+                    <a class="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-colors"
+                        href="mailto:tamiracarter@gmail.com">
+                        <span class="material-icons text-lg">email</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-colors"
+                        href="https://www.linkedin.com/in/tamiracarter" target="_blank">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright Footer -->
+            <div class="border-t border-gray-800 pt-8 pb-8 text-center">
+                <p class="text-[10px] text-gray-600 uppercase tracking-wider">© 2026 Tamira Carter. All Strategic Rights
+                    Reserved.</p>
+                <p class="text-[9px] text-gray-700 mt-1 uppercase">Optimized for Executive Review</p>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        /* Count-up animation for 52% */
+        (function () {
+            var target = document.getElementById('chinaPercent');
+            var animated = false;
+            function animateCount() {
+                if (animated) return;
+                animated = true;
+                var end = 52;
+                var duration = 1500;
+                var start = performance.now();
+                function step(now) {
+                    var elapsed = now - start;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.round(eased * end);
+                    target.textContent = current + '%';
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) { animateCount(); observer.disconnect(); }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(document.getElementById('donutChartContainer'));
+        })();
+
+        /* Interactive donut hover */
+        (function () {
+            var segments = document.querySelectorAll('.donut-segment');
+            var tooltip = document.getElementById('donutTooltip');
+            var tooltipCountry = document.getElementById('tooltipCountry');
+            var tooltipValue = document.getElementById('tooltipValue');
+            var tooltipPercent = document.getElementById('tooltipPercent');
+            var container = document.getElementById('donutChartContainer');
+
+            segments.forEach(function (seg) {
+                seg.addEventListener('mouseenter', function (e) {
+                    tooltipCountry.textContent = seg.getAttribute('data-country');
+                    tooltipValue.textContent = 'Volume: ' + seg.getAttribute('data-value') + ' units';
+                    tooltipPercent.textContent = seg.getAttribute('data-percent') + ' of total';
+                    tooltip.classList.remove('hidden');
+                    segments.forEach(function (s) {
+                        if (s !== seg) s.style.opacity = '0.4';
+                    });
+                    seg.style.strokeWidth = '18';
+                });
+                seg.addEventListener('mouseleave', function () {
+                    tooltip.classList.add('hidden');
+                    segments.forEach(function (s) { s.style.opacity = '1'; });
+                    seg.style.strokeWidth = '15';
+                });
+                seg.addEventListener('mousemove', function (e) {
+                    var rect = container.getBoundingClientRect();
+                    var x = e.clientX - rect.left + 10;
+                    var y = e.clientY - rect.top - 40;
+                    tooltip.style.left = x + 'px';
+                    tooltip.style.top = y + 'px';
+                });
+            });
+        })();
+
+        /* Count-up animation for pricing table */
+        (function () {
+            var pricingAnimated = false;
+            var vals = [
+                { el: document.getElementById('pricingVal1'), end: 5 },
+                { el: document.getElementById('pricingVal2'), end: 10 },
+                { el: document.getElementById('pricingVal3'), end: 15 }
+            ];
+            function animatePricing() {
+                if (pricingAnimated) return;
+                pricingAnimated = true;
+                var duration = 1200;
+                var start = performance.now();
+                function step(now) {
+                    var elapsed = now - start;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    vals.forEach(function (v) {
+                        v.el.textContent = Math.round(eased * v.end) + '%';
+                    });
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+            var pricingObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) { animatePricing(); pricingObserver.disconnect(); }
+                });
+            }, { threshold: 0.5 });
+            pricingObserver.observe(document.getElementById('pricingTable'));
+        })();
+
+        /* Waterfall chart animation */
+        (function () {
+            var waterfallAnimated = false;
+            var elements = [
+                { el: document.getElementById('waterfallVal1'), val: -727, suffix: 'k', prefix: '-$' },
+                { el: document.getElementById('waterfallVal2'), val: 1.32, suffix: 'M', prefix: '+$' },
+                { el: document.getElementById('waterfallVal3'), val: 598, suffix: 'k', prefix: '+$' }
+            ];
+
+            function animateWaterfall() {
+                if (waterfallAnimated) return;
+                waterfallAnimated = true;
+                var duration = 1500;
+                var start = performance.now();
+
+                function step(now) {
+                    var elapsed = now - start;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+
+                    elements.forEach(function (item) {
+                        var currentVal = item.val * eased;
+                        var formattedVal;
+
+                        // Handle decimals for small numbers like 1.32
+                        if (Math.abs(item.val) < 10) {
+                            formattedVal = Math.abs(currentVal).toFixed(2);
+                        } else {
+                            formattedVal = Math.round(Math.abs(currentVal));
+                        }
+
+                        item.el.textContent = item.prefix + formattedVal + item.suffix;
+                    });
+
+                    if (progress < 1) requestAnimationFrame(step);
+                    else {
+                        // Ensure final values are exact
+                        elements.forEach(function (item) {
+                            item.el.textContent = item.prefix + Math.abs(item.val) + item.suffix;
+                        });
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            var waterfallObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) { animateWaterfall(); waterfallObserver.disconnect(); }
+                });
+            }, { threshold: 0.5 });
+
+            var chartEl = document.getElementById('waterfallChart');
+            if (chartEl) waterfallObserver.observe(chartEl);
+        })();
+    </script>
+
+</body>
+
+</html>
