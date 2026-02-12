@@ -33,7 +33,6 @@ Unlike standard template-based portfolios, this project is **custom-engineered**
 ├── assets/             # Static Assets (Charts for Airbnb Case)
 ├── Resume.pdf          # Official Resume (V2)
 ├── Tamira Carter.png   # Profile Asset
-├── optimize_image.py   # Automation script for image compression
 └── README.md           # Project Documentation
 ```
 
