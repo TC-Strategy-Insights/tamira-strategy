@@ -9,7 +9,7 @@
 This repository hosts the professional digital portfolio for **Tamira Carter**. It is a high-performance, responsive web application designed to showcase strategic case studies in a format optimized for executive review.
 
 Unlike standard template-based portfolios, this project is **custom-engineered** to deliver a "Zero-Friction" experience:
-- **Hybrid Architecture:** Combines Resume, Bio, and Case Studies in a single, seamless scroll.
+- **Hybrid Architecture:** A "Central Command" Hub linking to deep-dive Case Study modules, mirroring corporate reporting structures.
 - **Executive-First Design:** Strict "Black & White" aesthetic for financial credibility (Cardinal Case) vs. "High-Impact" visuals for market strategy (Beyoncé Case).
 - **Performance Optimized:** Hand-coded HTML5/CSS3 with no heavy frameworks, ensuring instant load times on any device.
 
@@ -17,10 +17,9 @@ Unlike standard template-based portfolios, this project is **custom-engineered**
 
 ## 🛠️ Technology Stack
 - **Core:** HTML5, CSS3 (Tailwind CSS via CDN), Vanilla JavaScript.
-- **Visualization:** Responsive CSS Grid & Flexbox for complex charts.
-- **Optimization:** Python Script (`optimize_image.py`) for automated asset compression.
-- **Icons:** FontAwesome 6.5.1.
-- **Fonts:** Google Fonts (Inter).
+- **Visualization:** Responsive CSS Grid & Flexbox for complex layouts.
+- **Icons:** FontAwesome 6.5.1 + Material Icons.
+- **Fonts:** Google Fonts (Inter & Montserrat).
 
 ---
 
@@ -28,11 +27,13 @@ Unlike standard template-based portfolios, this project is **custom-engineered**
 
 ```graphql
 ├── index.html          # Main "Command Center" (Home, Bio, Resume, Links)
-├── case1.html          # Case 1: Beyoncé (Impact Strategy - Market Dominance)
-├── case2.html          # Case 2: Airbnb vs Hotels (Market Structure Analysis)
-├── case3.html          # Case 3: Cardinal Hardware (Profit & Pricing Strategy)
+├── case1.html          # Case 1: Beyoncé (Impact Strategy - Coded Charts)
+├── case2.html          # Case 2: Airbnb vs Hotels (Market Analysis)
+├── case3.html          # Case 3: Cardinal Hardware (Profit Strategy - Code Waterfall)
+├── assets/             # Static Assets (Charts for Airbnb Case)
+├── Resume.pdf          # Official Resume (V2)
+├── Tamira Carter.png   # Profile Asset
 ├── optimize_image.py   # Automation script for image compression
-├── assets/             # Images, PDFs, and Resume files
 └── README.md           # Project Documentation
 ```
 
